@@ -1,0 +1,19 @@
+body, div {
+    font-family: sans-serif;
+}
+
+.treemap .node {
+    font-size: 100%;
+    color: #fff;
+    line-height: 150%;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 1%;
+    transition: background 1s;
+    transition: color 0.5s;
+}
+
+.treemap .node:hover {
+    background: #e6e600 !important;
+    color: #000;
+}

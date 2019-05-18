@@ -1,0 +1,19 @@
+{
+    "name": "all",
+    "children": [
+        {
+            "name": "Pittsburgh",
+            "children": [
+                {   "name": "Larimer", "size": 1    },
+                {   "name": "Garfield", "size": 1    },
+                {   "name": "Bloomfield", "size": 5    },
+                {   "name": "TroyHill", "size": 8    },
+                {   "name": "Carrick", "size": 6   },
+                {   "name": "Bluff", "size": 10    },
+                {   "name": "LincolnPlace", "size": 8    },
+                {   "name": "Manchester", "size": 6    },
+                {   "name": "Brooklyn", "size": 8    }
+            ]
+        }
+    ]
+}
