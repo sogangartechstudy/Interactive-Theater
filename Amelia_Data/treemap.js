@@ -1,15 +1,15 @@
 var data = {
     name: "Pittsburgh",
     children: [
-        {   "name": "Larimer", "size": 1    },
-        {   "name": "Garfield", "size": 1    },
-        {   "name": "Bloomfield", "size": 5    },
-        {   "name": "TroyHill", "size": 8    },
-        {   "name": "Carrick", "size": 6   },
-        {   "name": "Bluff", "size": 10    },
-        {   "name": "LincolnPlace", "size": 8    },
-        {   "name": "Manchester", "size": 6    },
-        {   "name": "Brooklyn", "size": 8    }
+        {   "name": "Larimer", "size": 1, "word": "definitely hope, less, living, deep, formerly, pay, incredible, 393646, years"    },
+        {   "name": "Garfield", "size": 1, "word": "better, gang, major, diversifying, fire, never, remain, way, organizing, center"    },
+        {   "name": "Bloomfield", "size": 5 , "word": "diy, churches, area, influence, renamed, gap, environs, walk, volunteer, storefronts"  },
+        {   "name": "TroyHill", "size": 8 , "word": "went, disputed, avenue, palmas, district, loner, 000, shops, cities, ago"   },
+        {   "name": "Carrick", "size": 6, "word": "looming, hours, bastions, age, temporary, township, eventually, modest, vegas, outside"   },
+        {   "name": "Bluff", "size": 10, "word": "senior, construction, tends, goes, noisy, 30s, semipro, munhall, whose, aggie"    },
+        {   "name": "LincolnPlace", "size": 8, "word": "paths, boulevard, fanatic, exceptions, mossfield, seeing, hot, james, pizza, wicklines"    },
+        {   "name": "Manchester", "size": 6, "word": "sells, lebanon, incorporated, store, 172, hoffa, tree, professionals, league, celebrating"    },
+        {   "name": "Brooklyn", "size": 8, "word": "part, molly, trend, attempted, cobbler, good, newly, vacant, trolley, trees"    }
     ]
 };
 
@@ -58,6 +58,10 @@ function getLabel(d) {
     return d.name + "'s attendee is " + d.size;
 }
 
+function getKeyword(d) {
+    return d.word;
+}
+
 var treemap = d3.layout.treemap()
                        .size([100, 100])
                        .sticky(true)
@@ -77,4 +81,14 @@ var node = div.datum(data)
               .style("background", function(d, i) {
                   return colors(i);
               })
-              .text(getLabel);
+              .text(getKeyword)
+
+
+// var node1 = div.datum(data)
+//                .selectAll(".node")
+//                .data(treemap.nodes)
+//                .enter()
+//                .append("p")
+//                .attr("class", text)
+//                .call(position)
+//                .text(getKeyword);

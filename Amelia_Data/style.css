@@ -3,7 +3,7 @@ body, div {
 }
 
 .treemap .node {
-    font-size: 100%;
+    font-size: 200%;
     color: #fff;
     line-height: 150%;
     overflow: hidden;
