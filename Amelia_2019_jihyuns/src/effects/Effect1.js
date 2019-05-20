@@ -44,7 +44,7 @@ export class Effect1 extends Component {
         <p id="name">
           {this.props.names}<br></br>
         </p>
-        <p id="word" word-spacing="1em">
+        <p id="word">
           {this.props.word}<br></br>
         </p>
         <div id="text_01"> </div>

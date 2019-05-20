@@ -29,7 +29,7 @@ export class Effect2 extends Component {
     return (
       <div className="effects effect2">
         {this.props.attendee}
-        <p id="name" word-spacing="1em">
+        <p id="name">
           {this.props.names}<br></br>
         </p>
         <canvas ref="canvas" />

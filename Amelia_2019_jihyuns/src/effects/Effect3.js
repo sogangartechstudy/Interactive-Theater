@@ -74,7 +74,7 @@ export class Effect3 extends Component {
     return (
       <div className="effects effect3">
         {this.props.attendee}
-        <p id="name" word-spacing="1em">
+        <p id="name">
           {this.props.names}<br></br>
         </p>
         {/* <div ref={container => (this.container = container)} />) */}
