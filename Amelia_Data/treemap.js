@@ -81,7 +81,13 @@ var node = div.datum(data)
               .style("background", function(d, i) {
                   return colors(i);
               })
-              .text(getKeyword)
+              .text(getLabel)
+
+node.append("p").attr("id", "word")
+                .text(getKeyword)
+                .style("word-spacing", function(d, i) {
+                    return "1em";
+                })
 
 
 // var node1 = div.datum(data)
