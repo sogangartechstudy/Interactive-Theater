@@ -64,16 +64,23 @@ function getKeyword(d) {
 
 var treemap = d3.layout.treemap()
                        .size([100, 100])
-                       .sticky(true)
-                       .value(function (d) {
-                           return d.size;
-                       });
+                       .sticky(true);
+                    //    .value(function (d) {
+                    //        return d.size;
+                    //    });
+
+var root = d3.hierarchy(data)
+root.sum(function(d) {
+    return d.size;
+});
+
+treemap(root);
 
 var div = d3.select(".treemap")
 
 var node = div.datum(data)
               .selectAll(".node")
-              .data(treemap.nodes)
+              .data(root.descendants())
               .enter()
               .append("div")
               .attr("class", "node")
@@ -88,6 +95,7 @@ node.append("p").attr("id", "word")
                 .style("word-spacing", function(d, i) {
                     return "1em";
                 })
+                // .attr('x', function(d) { return d.x0});
 
 
 // var node1 = div.datum(data)

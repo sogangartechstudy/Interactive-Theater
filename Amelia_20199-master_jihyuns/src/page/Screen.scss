@@ -3,9 +3,9 @@ div {
 }
 
 .treemap .node {
-  font-size: 100%;
+  font-size: 80%;
   color: white;
-  font-style: italic;
+  //   font-style: italic;
   font-size: 2em;
   line-height: 150%;
   overflow: hidden;
@@ -13,7 +13,7 @@ div {
   text-indent: 1%;
   transition: background-color 1s;
   transition: color 0.5s;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Alfa Slab One", "cursive";
 }
 
 .treemap .node:hover {

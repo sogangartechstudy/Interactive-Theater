@@ -14,6 +14,14 @@ serviceWorker.unregister();
 
 WebFont.load({
   google: {
-    families: ["Quicksand", "Neuton", "sans serif"]
+    families: [
+      "Quicksand",
+      "Neuton",
+      "Crimson Text",
+      "Questrial",
+      "sans serif",
+      "Alfa Slab One",
+      "cursive"
+    ]
   }
 });

@@ -1,0 +1,30 @@
+.effect4 {
+}
+
+#roll01 {
+  color: rgb(0, 255, 143);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 7vw;
+  // -webkit-text-stroke-width: 1px;
+  // -webkit-text-stroke-color: black;
+  line-height: 90%;
+  position: relative;
+  // font-style: italic;
+  background: url(http://apps.pittsburghpa.gov/redtail/images/231_City_Pittsburgh_Incline.jpg)
+    no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: auto;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: text;
+  text-align: canter;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
+canvas {
+}

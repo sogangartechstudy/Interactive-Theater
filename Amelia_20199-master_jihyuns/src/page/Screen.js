@@ -95,22 +95,20 @@ export class Screen extends React.Component {
       .attr("class", function(d, i) {
         return "node node" + i;
       })
+      .attr("id", function(d, i) {
+        return d.neighbor;
+      })
       .call(position)
       .style("background", function(d, i) {
         return colors(i);
       })
       .text(getLabel);
 
-    node.append("p")
-        .attr("id", function(d, i) {
-          return d.neighbor;
-        })
-
     let divs = [];
     let effect = [];
     let effectAdd = (cityNum, neigborNum) => {
       const effectNum = 4;
-      let randomNum = Math.floor(Math.random() * 4);
+      let randomNum = Math.floor(Math.random() * 5);
       switch (randomNum) {
         case 0:
           return (
@@ -142,6 +140,15 @@ export class Screen extends React.Component {
         case 3:
           return (
             <Effect4
+              attendee={data.children[cityNum].children[neigborNum].neighbor}
+              names={data.children[cityNum].children[neigborNum].names}
+              word={data.children[cityNum].children[neigborNum].word}
+            />
+          );
+          break;
+        case 4:
+          return (
+            <Effect5
               attendee={data.children[cityNum].children[neigborNum].neighbor}
               names={data.children[cityNum].children[neigborNum].names}
               word={data.children[cityNum].children[neigborNum].word}

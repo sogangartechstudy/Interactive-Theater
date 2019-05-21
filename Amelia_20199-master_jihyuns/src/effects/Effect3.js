@@ -14,33 +14,71 @@ export class Effect3 extends Component {
   };
 
   componentDidMount() {
-    var Blotter = window.Blotter;
-    var ChannelSplitMaterial = window.Blotter.ChannelSplitMaterial;
 
-    const textArray_0 = Math.floor(Math.random() * 9 + 1);
-    var message = this.props.word[textArray_0];
+    var nameArray = [];
+    var c;
+    var txtElement = () => {
+      for(var i=0; i<this.props.names.length; i++) {
+        nameArray.push(this.props.names[i]);
+      }
+
+      nameArray.sort();
+      c = document.getElementById("container").innerHTML = nameArray.join(" ");
+    };
+
+    txtElement();
+
+    const typingDelay = 200;
+    var Blotter = window.Blotter;
+    var LiquidDistortMaterial = window.Blotter.LiquidDistortMaterial;
+
+    const textArray_ = Math.floor(Math.random() * 9 + 1);
+    var message = this.props.word[textArray_];
 
     var text = new Blotter.Text(message, {
       family: "sans-serif",
-      size: 80,
+      size: 150,
+      weight: 700,
       fill: "#000000",
-      style: "italic",
-      padding: 40
+      paddingLeft: 30,
+      paddingRight: 50
     });
-
-    var channel = new ChannelSplitMaterial();
+    var channel = new LiquidDistortMaterial();
     var bchannel = new Blotter(channel, {
       texts: text
     });
 
-    channel.uniforms.uOffset.value = 0.1;
-    channel.uniforms.uRotation.value = 100;
-    channel.uniforms.uApplyBlur.value = 0;
-    channel.uniforms.uAnimateNoise.value = 0;
+    channel.uniforms.uSpeed.value = 0.5;
+    channel.uniforms.uVolatility.value = 0.1;
+    channel.uniforms.uSeed.value = formula;
 
     let el = document.getElementById("blotter_1");
     var scope = bchannel.forText(text);
     scope.appendTo(el);
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //   setInterval(message, typingDelay + 900);
+    // });
+
+    var start = null;
+
+    var formula = 0.5;
+    var d = 0.001;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = timestamp - start;
+      formula = formula + d;
+
+      // el.style.transform = "translateX(" + Math.min(progress / 10, 200) + "px)";
+      if (progress < 500000) {
+        window.requestAnimationFrame(step);
+        if (formula > 5 || formula < -1) {
+          formula = formula - d;
+        }
+      }
+    }
+
+    window.requestAnimationFrame(step);
 
     // function getRandomInt(max) {
     //   return Math.floor(Math.random() * Math.floor(max));
@@ -55,6 +93,7 @@ export class Effect3 extends Component {
     //   "black",
     //   "purple"
     // ];
+
     // let getRandomColor = currentColor => {
     //   let randomInt = getRandomInt(colorsLength);
     //   let color = colors[randomInt - 1];
@@ -66,7 +105,7 @@ export class Effect3 extends Component {
     //   text.needsUpdate = true;
     // }
     // window.scope = scope;
-    // scope.appendTo(this.container);
+    // scope.appendTo(this.el);
     // window.setInterval(changeColor, 1000);
   }
 
@@ -74,9 +113,7 @@ export class Effect3 extends Component {
     return (
       <div className="effects effect3">
         {this.props.attendee}
-        <p id="name">
-          {this.props.names}<br></br>
-        </p>
+        <div id="container">{this.props.names}</div>
         {/* <div ref={container => (this.container = container)} />) */}
         <div id="blotter_1" />
       </div>
